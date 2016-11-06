@@ -45,10 +45,11 @@ function updateLatestSearch(searched){
     const jsonfile = require('jsonfile');
     const file = './latestsearch.json';
     var d = new Date();
+    var completedDate = d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()+" "+((parseInt(d.getHours())<10)?'0'+d.getHours():d.getHours())+":"+((parseInt(d.getMinutes())<10)?'0'+d.getMinutes():d.getMinutes())+":"+d.getSeconds();
     //object to add to the file
     var obj = {
         "term":searched,
-        "when":d.toDateString()
+        "when":completedDate
     }
     
     var newArr; // updated array that will be put back into the file
